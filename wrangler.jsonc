@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "brewfather-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "kv_namespaces": [
+    // Stores OAuth grants and tokens. The Deploy to Cloudflare button creates
+    // a new namespace for each deploy. For a manual deploy, replace the id with
+    // the one from: npx wrangler kv namespace create OAUTH_KV
+    { "binding": "OAUTH_KV", "id": "05d9379891a641cd8da6e20296caa023" }
+  ]
+  // Secrets (prompted by the deploy button, or `wrangler secret put <NAME>`):
+  //   BREWFATHER_USER_ID, BREWFATHER_API_KEY, ACCESS_PASSPHRASE
+  // Optional var PUBLIC_URL: only needed behind a custom domain or proxy.
+}
